@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.ateeq.hbnate.pojo" table="USER_CONTACT_DETAILS" >
+		<id name="id" type="java.long.Integer">
+			<column name="id" />
+			<generator class="foreign" >
+				<param name="property">users</param>
+			</generator>
+		</id>
+		<one-to-one name="users" class="com.ateeq.hbnate.pojo.Users" constrained="true"></one-to-one>
+		<property name="email" type="string">
+			<column name="EMAIL" length="100" not-null="true" unique="true" />
+		</property>
+		<property name="telephone" type="string">
+			<column name="TELEPHONE" length="10" not-null="true"/>
+		</property>
+		<property name="addressLine1" type="string">
+			<column name="ADDRESS_LINE1" length="50" not-null="true"/>
+		</property>
+		<property name="addressLine2" type="string">
+			<column name="ADDRESS_LINE2" length="50" not-null="false"/>
+		</property>
+		<property name="addressLine3" type="string">
+			<column name="ADDRESS_LINE3" length="50"/>
+		</property>
+		<property name="city" type="string">
+			<column name="CITY" not-null="true" length="50"/>
+		</property>
+		<property name="state" type="string">
+			<column name="STATE" not-null="false" length="50"/>
+		</property>
+		<property name="zipCode" type="string">
+			<column name="ZIP_CODE" not-null="true" length="10"/>
+		</property>
+		<property name="zipCodeExtension" type="string">
+			<column name="ZIP_CODE_EXTENSION" not-null="false" length="5"/>
+		</property>
+		<property name="country" type="string">
+			<column name="COUNTRY" not-null="true" length="50"/>
+		</property>
+		
+	</class>
+</hibernate-mapping>
